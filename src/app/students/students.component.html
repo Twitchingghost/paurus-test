@@ -1,0 +1,57 @@
+<div class="submit-form">
+    <div *ngIf="!submitted">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input 
+                type="text"
+                class="form-control"
+                id="name"
+                required
+                [(ngModel)]="student.name"
+                name="name"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="surrname">Surname</label>
+            <input 
+                type="text"
+                class="form-control"
+                id="surrname"
+                required
+                [(ngModel)]="student.surrname"
+                name="surrname"
+            />
+        </div>
+        
+        <ul class="list-group list-group-flush">
+            <label class="custom-control-label" for="course">Courses</label>
+            <li *ngFor="let course of coursesData; let i = index" class="list-group-item">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox"  (change)="addRemove('coursesData', i)">
+                    {{ course.name }}
+                    
+                </div> 
+            </li>
+        </ul>
+        <button type="button" class="btn btn-primary" (click)="submit()">Submit</button>
+    </div>
+</div>
+<div>
+    <table class="table">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Courses</th>
+        <tr *ngFor="let person of students">
+            <td>{{ person.id }}</td>
+            <td> {{ person.name }}</td>
+            <td> {{ person.surrname }}</td>
+            <td> {{ person.courses }}</td>
+            <td><button class="btn btn-link" routerLink="/studentedit/{{person.id}}">Edit</button></td>
+        </tr>
+    </table>
+    
+
+    <button type="button" class="btn btn-primary" (click)="newStudent()">Add New Student</button>
+</div>

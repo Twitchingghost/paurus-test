@@ -1,0 +1,15 @@
+<div>
+    <table class="table">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Courses</th>
+        <tr *ngFor="let person of proffesors">
+            <td>{{ person.id }}</td>
+            <td> {{ person.name }}</td>
+            <td> {{ person.surrname }}</td>
+            <td> {{ person.courses }}</td>
+        </tr>
+    </table>
+
+</div>

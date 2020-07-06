@@ -1,0 +1,17 @@
+<div *ngIf="student" class="edit-form">
+    <h1>{{student.name}} {{student.surrname}}</h1>
+    <ul class="list-group list-group-flush">
+        <label class="custom-control-label" for="course">Courses</label>
+        <li *ngFor="let course of coursesData; let i = index" class="list-group-item">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox"  (change)="addRemove('coursesData', i)" [(ngModel)]="course.isChecked">
+                {{ course.name }}
+                
+            </div> 
+        </li>
+    </ul>
+    <div style="display: inline-block;">
+        <button type="button" class="btn btn-primary" style="margin: 5px" (click)="updateCourses()">Update</button>
+        <button type="button" class="btn btn-primary" style="margin: 5px" (click)="deleteStudent()">Delete Student</button>
+    </div>
+</div>
